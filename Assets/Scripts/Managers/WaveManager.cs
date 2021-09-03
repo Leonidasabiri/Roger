@@ -9,7 +9,7 @@ public class WaveManager : MonoBehaviour
 
     public int count = 0, numberforthenextwave = 21;
     [SerializeField] string[] wavemessages = {"Wave 1","Wave 2", "Wave 3", "Wave 4"};
-    int ind = 0;
+    public int ind = 0;
 
     [SerializeField] float t = 5;
 
