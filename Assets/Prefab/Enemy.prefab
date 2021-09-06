@@ -83,7 +83,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &2460935293350731734
 Rigidbody2D:
@@ -146,5 +146,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bloodSpitsRandomizer: {fileID: 7195859375959470445, guid: ed999591920de39439e4e6c6eddf67ef, type: 3}
   stopingDistance: 0.1
-  speed: 3
+  speed: 5
   health: 1
