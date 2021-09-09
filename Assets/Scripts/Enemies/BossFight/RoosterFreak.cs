@@ -24,29 +24,36 @@ public class RoosterFreak : Boss
     => attacktype switch 
     { 
         1 => "smash",
-        2 => "wavingclaws"
+        2 => "wavingclaws",
+        3 => "spitting"
     };
 
     protected override void patrol(List<Transform> waypoints, float speed)
     {
         transform.position = Vector2.Lerp(transform.position, waypoints[i].position, speed * Time.deltaTime);
+        transform.rotation = Quaternion.Lerp(transform.rotation, waypoints[i].rotation, speed * Time.deltaTime);
     }
 
-    void animationsetting(string attackname, bool attack)
+    IEnumerator animationsetting(string attackname, bool attack)
     {
         anim.SetBool(attackname, attack);
+        attack = false;
+        yield return new WaitForSeconds(2);
+        timetoattack = 2; 
     }
 
     // Update is called once per frame
     void Update()
     {
-        int attackindex = UnityEngine.Random.Range(1,3);
-
         if (timetoattack <= 0)
         {
-            animationsetting(attackState(attackindex), !Convert.ToBoolean(timetoattack));
+            int attackindex = UnityEngine.Random.Range(1,3);
+            StartCoroutine(animationsetting(attackState(attackindex), Convert.ToBoolean(timetoattack)));
+            Debug.Log(attackState(attackindex));
             timetoattack = 2.0f;
         }
+        else
+            timetoattack -= Time.deltaTime;
         patrol(transforms, speed);
     }
 }
