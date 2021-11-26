@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             cameraShake.Shake(3);
-            Destroy(gameObject);
+            Destroy(gameObject);    // BAD PRACTICE !!!! VERY BAD PRACTICE !!!!!!!!!!!!!!!
         }
     }
 }
