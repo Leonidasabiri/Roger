@@ -17,9 +17,7 @@ public class Blood : MonoBehaviour
     void Update()
     {
         if(tmp.a >= 0)
-        {
             tmp.a -= Time.deltaTime / 100;
-        }
         sprite.color = tmp;
     }
 }
